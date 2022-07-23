@@ -1,8 +1,9 @@
 package com.amir.dependencydemo
 
 import android.util.Log
+import javax.inject.Inject
 
-class MemoryCard {
+class MemoryCard @Inject constructor(){
     init {
         Log.i("MYTAG","Memory Card Constructed")
     }
