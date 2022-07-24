@@ -32,10 +32,7 @@ Instead we have to use the builder.
 /*
 When we are constructing the component with a builder function , we have to add each module with a state here
  */
-        DaggerSmartPhoneComponent.builder()
-            .memoryCardModule(MemoryCardModule(1000))
-            .build()
-            .inject(this)
+ (application as SmartPhoneApplication).smartPhoneComponent.inject(this)
 
 
     }
