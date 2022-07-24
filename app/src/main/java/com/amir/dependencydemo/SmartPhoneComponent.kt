@@ -1,6 +1,7 @@
 package com.amir.dependencydemo
 
 import dagger.Component
+import javax.inject.Singleton
 
 /*
 In our demo project, to get the SmartPhone dependency,
@@ -10,7 +11,7 @@ In our demo project, to get the SmartPhone dependency,
  If you have 10 required dependencies like this SmartPhone dependency, you may have to write getter methods for all of them
  in the component interface. And you will have to call to them form all activities in this way.
  */
-
+@Singleton
 @Component(modules = [MemoryCardModule::class, NCBatteryModule::class])
 interface SmartPhoneComponent {
    //we dont have to write getter method like this
