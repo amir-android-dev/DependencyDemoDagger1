@@ -22,10 +22,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        DaggerSmartPhoneComponent.create()
+/*
+Since at least one of our modules has a state, we cannot use this simple create function, to construct a SmartPhoneComponent.
+Instead we have to use the builder.
+ */
+//        DaggerSmartPhoneComponent.create()
+//            .inject(this)
+//        smartPhone.makeACallWithRecording()
+/*
+When we are constructing the component with a builder function , we have to add each module with a state here
+ */
+        DaggerSmartPhoneComponent.builder()
+            .memoryCardModule(MemoryCardModule(1000))
+            .build()
             .inject(this)
-        smartPhone.makeACallWithRecording()
 
 
     }
